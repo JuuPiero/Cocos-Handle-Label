@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../source/main.ts"],
+  "sourcesContent": ["import { join } from 'path';\n\nexport const methods: { [name: string]: (...args: any[]) => any } = {\n    /** Extension > Scene Handles > Show / Hide Labels */\n    async toggleLabels() {\n        try {\n            await Editor.Message.request('scene', 'execute-scene-script', { name: 'scene-handles', method: 'toggle', args: [] });\n        } catch (e) {\n            console.warn('[SceneHandles] No scene is open:', e);\n        }\n    },\n\n    /** Extension > Scene Handles > Open README */\n    async openDocs() {\n        try {\n            const { shell } = require('electron');\n            await shell.openPath(join(__dirname, '..', 'README.md'));\n        } catch (e) {\n            console.error('[SceneHandles] Could not open the README:', e);\n        }\n    },\n};\n\nexport function load() {}\n\nexport function unload() {}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,kBAAqB,iBAER,UAAuD;AAAA;AAAA,EAEhE,MAAM,eAAe;AACjB,QAAI;AACA,YAAM,OAAO,QAAQ,QAAQ,SAAS,wBAAwB,EAAE,MAAM,iBAAiB,QAAQ,UAAU,MAAM,CAAC,EAAE,CAAC;AAAA,IACvH,SAAS,GAAG;AACR,cAAQ,KAAK,oCAAoC,CAAC;AAAA,IACtD;AAAA,EACJ;AAAA;AAAA,EAGA,MAAM,WAAW;AACb,QAAI;AACA,UAAM,EAAE,MAAM,IAAI,QAAQ,UAAU;AACpC,YAAM,MAAM,aAAS,kBAAK,WAAW,MAAM,WAAW,CAAC;AAAA,IAC3D,SAAS,GAAG;AACR,cAAQ,MAAM,6CAA6C,CAAC;AAAA,IAChE;AAAA,EACJ;AACJ;AAEO,SAAS,OAAO;AAAC;AAEjB,SAAS,SAAS;AAAC;",
+  "names": []
+}
